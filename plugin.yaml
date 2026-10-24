@@ -1,0 +1,50 @@
+name: de-law
+version: 1.0.0
+manifest_version: 2
+api_version: 1
+requires_hermes: ">=0.22.2"
+description: "German federal law, EU law and German federal court decisions for Hermes: read one section (§ 203 StGB) or article (Art. 6 DSGVO, Art. 50 AI Act) in the source wording with Stand, gazette reference and source line, search laws, list a law's sections, find and read decisions of BVerfG, BGH, BVerwG, BFH, BAG, BSG and BPatG. Sources: gesetze-im-internet.de, rechtsprechung-im-internet.de (German Federal Office of Justice) and the Publications Office of the EU. No API key; texts are cached locally. Legal texts, not legal advice."
+author: MadeByBrain
+license: MIT
+homepage: https://github.com/MadeByBrain/hermes-de-law
+tags: [law, legal, germany, eu, gdpr, dsgvo, ai-act, statutes, case-law, government-data]
+provides_tools:
+  - de_law_get
+  - de_law_search
+  - de_law_toc
+  - de_case_search
+  - de_case_get
+provides_hooks: []
+config_schema:
+  language:
+    type: str
+    choices: [auto, en, de]
+    default: auto
+    label: "Source line language"
+    description: "Language of the attribution line in results. auto = the language of the text (German for German law)."
+  eu_language:
+    type: str
+    choices: [de, en]
+    default: de
+    label: "EU text language"
+    description: "Default language for EU acts (the model can ask for the other one per call)."
+  max_age_hours:
+    type: int
+    default: 24
+    label: "Recheck after (hours)"
+    description: "Cached laws and indexes older than this are rechecked with the source (usually a short 304 answer). 0 = always recheck."
+  cache_max_mb:
+    type: int
+    default: 200
+    label: "Cache size limit (MB)"
+    description: "Oldest cached texts are deleted when the cache grows beyond this size."
+  case_law:
+    type: bool
+    default: true
+    label: "Court decisions"
+    description: "Allow de_case_search and de_case_get (rechtsprechung-im-internet.de)."
+  eu_law:
+    type: bool
+    default: true
+    label: "EU law"
+    description: "Allow EU acts (publications.europa.eu)."
