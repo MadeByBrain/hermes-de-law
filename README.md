@@ -1,5 +1,7 @@
 # de-law: German and EU law for Hermes Agent
 
+[![Hermes compatibility](https://github.com/MadeByBrain/hermes-de-law/actions/workflows/compat.yml/badge.svg)](https://github.com/MadeByBrain/hermes-de-law/actions/workflows/compat.yml)
+
 ![de-law: German and EU law, word for word. Hermes Agent plugin](docs/banner.png)
 
 Ask Hermes for `§ 203 StGB`, `Art. 6 Abs. 1 lit. f DSGVO` or `Art. 50 AI Act` and it reads the provision from the official source before it answers: the wording, the law's version status (Stand), the gazette reference, a link to the source page and a ready-made attribution line. It also searches the index of all German federal laws, lists the sections of a law, and finds and reads published decisions of the German federal courts.
@@ -179,6 +181,10 @@ On 24.10.2026, Hermes Agent v0.22.2 (CLI), Python 3.11, in an isolated `HERMES_H
 ## Auf Deutsch
 
 `de-law` holt Paragraphen und Artikel aus den offiziellen Datenbanken: Bundesrecht von Gesetze im Internet, Entscheidungen der Bundesgerichte von Rechtsprechung im Internet, EU-Recht vom Amt für Veröffentlichungen der EU. Jede Antwort enthält Wortlaut, Stand, Fundstelle, Link und eine fertige Quellenzeile. Paragraph und Suchbegriffe verlassen den Rechner nicht, weil das Plugin das ganze Gesetz lädt und lokal zwischenspeichert. Das Plugin liefert Gesetzestexte, keine Rechtsberatung. Verbindlich sind nur Bundesgesetzblatt und Amtsblatt der EU.
+
+## Maintenance
+
+Checked every week against the latest Hermes Agent release (offline tests and `hermes plugins validate`), and on every change. Found a problem? Open an issue.
 
 ## License
 
